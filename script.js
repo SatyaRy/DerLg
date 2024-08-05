@@ -36,7 +36,6 @@ async function fetchData(key, resortName){
     const endpoint = resortName   //const endpoint 
     const url =  `https://der-lg-api.vercel.app/province?${key}=${endpoint}`
     const response = await fetch(url)
-    console.log(url)
     const data = await response.json()
      data.forEach((value,index)=>{
         const {iN,l, t,pn,lo,ac,ti,td} = value //destructuring from data
