@@ -7,7 +7,7 @@ let notify = document.querySelector(".notify")
 let discover = document.querySelector("#discover")
 let discoverCard = document.querySelector(".discoverCard")
 let viewButton = document.getElementById("views")
-let errorHandle = document.querySelector(".errorHandling")
+let errorImage = document.querySelector(".errorImage")
 const arrayIndex = [] // store the index of data but duplicated
 const unique =[] //store new index without duplicated
 //Find button function
@@ -21,7 +21,7 @@ findButton.forEach((findButton)=>{
             fetchData()
         }
         else{
-            fetchData("rn",search.value.toLowerCase())
+            fetchData("resortName",search.value.toLowerCase())
             errorHandle.style.display = "none"
         }
     })
@@ -30,7 +30,7 @@ findButton.forEach((findButton)=>{
 })
 
 //clear input function
-search.onfocus=()=> {search.value ="";}
+search.onfocus=()=> {search.value =""; errorImage.innerHTML = ``}
 search.addEventListener("click", event=>{displayDiscover()})
 
 //fetching data and create card function
@@ -41,18 +41,15 @@ async function fetchData(key, resortName){
     const data = await response.json()
     console.log(response)
     if(data.length ===0){
-         errorHandle.style.display = "flex"
+       const errorHandle = document.createElement("img")
+       errorHandle.src ="asset/valuecat.svg"
+       errorImage.appendChild(errorHandle)
+    }
+    else{
+        errorImage.innerHTML = ``
     }
      data.forEach((value,index)=>{
-<<<<<<< HEAD
-<<<<<<< HEAD
-        const {iN,l, t,pn,lo,ac,ti,td} = value //destructuring from data
-=======
-        const {indexNumber,landscape, type,provinceName,location,averagecost,travelTime,travelDistance} = value //destructuring from data
->>>>>>> parent of ce7e04b (Update script.js)
-=======
-        const {indexNumber,landscape, type,provinceName,location,averagecost,travelTime,travelDistance} = value //destructuring from data
->>>>>>> parent of ce7e04b (Update script.js)
+        const {indexNumber,landscape, type,provinceName,location,averagecost,travelTime,travelDistance} = value 
         const card = document.createElement("div")  //create card div
         card.className ="card"  //class name of card
         content.appendChild(card) //append to parent element
@@ -106,7 +103,7 @@ async function fetchData(key, resortName){
         }) 
         //
         card.addEventListener("click", event=>{ //testing
-                card.setAttribute("id", `${iN}`)
+                card.setAttribute("id", `${indexNumber}`)
                 const cardId = card.getAttribute("id")
                 arrayIndex.push(cardId)
                 arrayIndex.forEach((value)=>{if(!unique.includes(value)){ unique.push(value)}})
@@ -125,6 +122,7 @@ function displayDiscover(){
 function displayFavorite(){
     content.innerHTML = ``
     discoverCard.style.display ="none"
+    errorImage.innerHTML = ``
     unique.forEach((value)=>{fetchData("id",value)})
 }
 //show the data of discover
