@@ -39,7 +39,7 @@ async function fetchData(key, resortName){
     console.log(url)
     const data = await response.json()
      data.forEach((value,index)=>{
-        const {l, t,pn,lo,ac,ti,td} = value //destructuring from data
+        const {iN,l, t,pn,lo,ac,ti,td} = value //destructuring from data
         const card = document.createElement("div")  //create card div
         card.className ="card"  //class name of card
         content.appendChild(card) //append to parent element
@@ -93,7 +93,7 @@ async function fetchData(key, resortName){
         }) 
         //
         card.addEventListener("click", event=>{ //testing
-                card.setAttribute("id", `${indexNumber}`)
+                card.setAttribute("id", `${iN}`)
                 const cardId = card.getAttribute("id")
                 arrayIndex.push(cardId)
                 arrayIndex.forEach((value)=>{if(!unique.includes(value)){ unique.push(value)}})
