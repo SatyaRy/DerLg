@@ -45,7 +45,11 @@ async function fetchData(key, resortName){
     }
      data.forEach((value,index)=>{
 <<<<<<< HEAD
+<<<<<<< HEAD
         const {iN,l, t,pn,lo,ac,ti,td} = value //destructuring from data
+=======
+        const {indexNumber,landscape, type,provinceName,location,averagecost,travelTime,travelDistance} = value //destructuring from data
+>>>>>>> parent of ce7e04b (Update script.js)
 =======
         const {indexNumber,landscape, type,provinceName,location,averagecost,travelTime,travelDistance} = value //destructuring from data
 >>>>>>> parent of ce7e04b (Update script.js)
