@@ -18,7 +18,7 @@ findButton.forEach((findButton)=>{
         content.style.display = "grid"
         //fetchData(search.value.toLowerCase())
         if(search.value ===""){
-           errorHandle.style.display = "grid"
+            fetchData()
         }
         else{
             fetchData("rn",search.value.toLowerCase())
@@ -39,6 +39,10 @@ async function fetchData(key, resortName){
     const url =  `https://der-lg-api.vercel.app/province?${key}=${endpoint}`
     const response = await fetch(url)
     const data = await response.json()
+    console.log(response)
+    if(data.length ===0){
+         errorHandle.style.display = "flex"
+    }
      data.forEach((value,index)=>{
         const {iN,l, t,pn,lo,ac,ti,td} = value //destructuring from data
         const card = document.createElement("div")  //create card div
@@ -108,20 +112,17 @@ function displayDiscover(){
     content.innerHTML = ``
     discoverCard.style.display ="grid"
     discoverCard.style.marginLeft =""
-    errorHandle.style.display = "none"
 }
 //favorite function
 function displayFavorite(){
     content.innerHTML = ``
     discoverCard.style.display ="none"
     unique.forEach((value)=>{fetchData("id",value)})
-    errorHandle.style.display = "none"
 }
 //show the data of discover
 function discoverData(key,value){
     content.style.display = "grid"
     discoverCard.style.display ="none"
-    errorHandle.style.display = "none"
     fetchData(key,value)
 }
 function filter(){
