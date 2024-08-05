@@ -107,7 +107,6 @@ function displayDiscover(){
     content.innerHTML = ``
     discoverCard.style.display ="grid"
     discoverCard.style.marginLeft =""
-    filterBox.classList.remove("filterBox")
 }
 //favorite function
 function displayFavorite(){
