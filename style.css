@@ -205,9 +205,20 @@ body{
     color: dodgerblue;
 }
 
-
-
-
+/*Error Handling */
+.erorrHandling{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50vh;
+    border: solid black;
+}
+.errorImage{
+    width: 500px;
+    height: 100%;
+    background-color: #9b3e10;
+}
 
 /* Menu List */
 .menuList{
@@ -417,7 +428,7 @@ body{
 
 /*discover card */
 .discoverCard{
-    display:grid;
+    display:none;
     justify-content: center;
     grid-template-rows: auto;
     grid-template-columns: repeat( auto-fit, minmax(300px, 1fr) );
