@@ -7,6 +7,7 @@ let notify = document.querySelector(".notify")
 let discover = document.querySelector("#discover")
 let discoverCard = document.querySelector(".discoverCard")
 let viewButton = document.getElementById("views")
+let errorHandle = document.querySelector(".errorHandling")
 const arrayIndex = [] // store the index of data but duplicated
 const unique =[] //store new index without duplicated
 //Find button function
@@ -17,10 +18,11 @@ findButton.forEach((findButton)=>{
         content.style.display = "grid"
         //fetchData(search.value.toLowerCase())
         if(search.value ===""){
-            fetchData()
+           errorHandle.style.display = "grid"
         }
         else{
             fetchData("rn",search.value.toLowerCase())
+            errorHandle.style.display = "none"
         }
     })
     findButton.addEventListener("mouseleave", event=>{
@@ -106,17 +108,20 @@ function displayDiscover(){
     content.innerHTML = ``
     discoverCard.style.display ="grid"
     discoverCard.style.marginLeft =""
+    errorHandle.style.display = "none"
 }
 //favorite function
 function displayFavorite(){
     content.innerHTML = ``
     discoverCard.style.display ="none"
     unique.forEach((value)=>{fetchData("id",value)})
+    errorHandle.style.display = "none"
 }
 //show the data of discover
 function discoverData(key,value){
     content.style.display = "grid"
     discoverCard.style.display ="none"
+    errorHandle.style.display = "none"
     fetchData(key,value)
 }
 function filter(){
