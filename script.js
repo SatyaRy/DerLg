@@ -20,7 +20,7 @@ findButton.forEach((findButton)=>{
             fetchData()
         }
         else{
-            fetchData("resortName",search.value.toLowerCase())
+            fetchData("rn",search.value.toLowerCase())
         }
     })
     findButton.addEventListener("mouseleave", event=>{
