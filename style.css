@@ -207,7 +207,7 @@ body{
 
 /*Error Handling */
 .errorHandling{
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -434,7 +434,7 @@ body{
 
 /*discover card */
 .discoverCard{
-    display:none;
+    display:grid;
     justify-content: center;
     grid-template-rows: auto;
     grid-template-columns: repeat( auto-fit, minmax(300px, 1fr) );
