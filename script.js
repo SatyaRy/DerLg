@@ -117,6 +117,7 @@ function displayDiscover(){
     content.innerHTML = ``
     discoverCard.style.display ="grid"
     discoverCard.style.marginLeft =""
+    errorImage.innerHTML = ``
 }
 //favorite function
 function displayFavorite(){
