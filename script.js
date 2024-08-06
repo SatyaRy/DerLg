@@ -29,7 +29,7 @@ findButton.forEach((findButton)=>{
 })
 
 //clear input function
-search.onfocus=()=> {search.value ="";errorHandle.style.display = "none"}
+search.onfocus=()=> {search.value ="";}
 search.addEventListener("click", event=>{displayDiscover()})
 //fetching data and create card function
 async function fetchData(key, resortName){
@@ -37,7 +37,6 @@ async function fetchData(key, resortName){
     const url =  `https://der-lg-api.vercel.app/province?${key}=${endpoint}`
     const response = await fetch(url)
     const data = await response.json()
-    console.log(data)
     if(data.length ===0){
         errorHandle.style.display = "flex"
     }
@@ -82,28 +81,39 @@ async function fetchData(key, resortName){
         })
 
         //heart function inside card
-        let i = 0;
+        /*let click = true
         let heart = document.querySelectorAll("#heart")
         heart.forEach((value,index)=>{
             value.addEventListener("click", event=>{
-                i++
-
-                if(i==1){
+                if(click){
                         value.style.color ="red";
                         notify.style.display ="flex"
                         setTimeout(()=>{
                             notify.style.display ="none"
                         },3000)
+                        click = false
                         }
-                if(i>1){ value.style.color ="",i=0}
+                else{ value.style.color =null, click = true}
             })
-        }) 
+        }) */
         //
+        let check = true
         card.addEventListener("click", event=>{ //testing
                 card.setAttribute("id", `${indexNumber}`)
                 const cardId = card.getAttribute("id")
                 arrayIndex.push(cardId)
                 arrayIndex.forEach((value)=>{if(!unique.includes(value)){ unique.push(value)}})
+                if(event.target.className ==="fa-solid fa-heart" && check){
+                    console.log("ss")
+                    check = false
+                    event.target.style.color ="red"
+                }
+                else{
+                    console.log("sss")
+                      check = true
+                       event.target.style.color =null
+                }
+                
         })
     })
 
