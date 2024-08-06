@@ -49,7 +49,7 @@ async function fetchData(key, resortName){
         errorImage.innerHTML = ``
     }
      data.forEach((value,index)=>{
-        const {indexNumber,landscape, type,provinceName,location,averagecost,travelTime,travelDistance} = value 
+        const {indexNumber,landscape, type,provinceName,location,averagecost,travelTime,travelDistance,resortName} = value 
         const card = document.createElement("div")  //create card div
         card.className ="card"  //class name of card
         content.appendChild(card) //append to parent element
@@ -62,7 +62,7 @@ async function fetchData(key, resortName){
                                             <i id ="heart" class="fa-solid fa-heart"></i>
                                 </div>    
                                 <div class ="distance">
-                                            <i class="fa-regular fa-map"><span class ="distanceText">${location}</span></i>
+                                            <i class="fa-regular fa-map"><span class ="distanceText">${resortName}</span></i>
                                             <i class="fa-solid fa-sack-dollar"><span class ="distanceText">Average spend per day ${averagecost}$</span></i>
                                             <i class="fa-solid fa-car"><span class ="distanceText">Travel Distance ${travelDistance} <sup>km</sup></span></i>
                                             <i class="fa-regular fa-clock"><span class ="distanceText">Travel Time ${travelTime}</span></i>
