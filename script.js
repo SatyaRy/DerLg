@@ -79,34 +79,16 @@ async function fetchData(key, resortName){
             if(imageNumber>2){imageNumber = 0;img.src =landscape[imageNumber] }
             else{ img.src =landscape[imageNumber]}
         })
-
-        //heart function inside card
-        /*let click = true
-        let heart = document.querySelectorAll("#heart")
-        heart.forEach((value,index)=>{
-            value.addEventListener("click", event=>{
-                if(click){
-                        value.style.color ="red";
-                        notify.style.display ="flex"
-                        setTimeout(()=>{
-                            notify.style.display ="none"
-                        },3000)
-                        click = false
-                        }
-                else{ value.style.color =null, click = true}
-            })
-        }) */
-        //
         let check = true
         card.addEventListener("click", event=>{ //testing
-                card.setAttribute("id", `${indexNumber}`)
-                const cardId = card.getAttribute("id")
-                arrayIndex.push(cardId)
-                arrayIndex.forEach((value)=>{if(!unique.includes(value)){ unique.push(value)}})
                 if(event.target.className ==="fa-solid fa-heart" && check){
                     console.log("ss")
                     check = false
                     event.target.style.color ="red"
+                    card.setAttribute("id", `${indexNumber}`)
+                    const cardId = card.getAttribute("id")
+                    arrayIndex.push(cardId)
+                    arrayIndex.forEach((value)=>{if(!unique.includes(value)){ unique.push(value)}})
                 }
                 else{
                     console.log("sss")
