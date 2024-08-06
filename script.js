@@ -9,6 +9,7 @@ let discoverCard = document.querySelector(".discoverCard")
 let viewButton = document.getElementById("views")
 const arrayIndex = [] // store the index of data but duplicated
 const unique =[] //store new index without duplicated
+let errorHandle= document.querySelector(".errorHandling")
 //Find button function
 findButton.forEach((findButton)=>{
     findButton.addEventListener("click", event=>
@@ -20,8 +21,7 @@ findButton.forEach((findButton)=>{
             fetchData()
         }
         else{
-            fetchData("resortName",search.value.toLowerCase())
-            errorHandle.style.display = "none"
+            fetchData("resortName",search.value)
         }
     })
     findButton.addEventListener("mouseleave", event=>{
@@ -29,16 +29,22 @@ findButton.forEach((findButton)=>{
 })
 
 //clear input function
-search.onfocus=()=> {search.value =""; errorImage.innerHTML = ``}
+search.onfocus=()=> {search.value ="";errorHandle.style.display = "none"}
 search.addEventListener("click", event=>{displayDiscover()})
-
 //fetching data and create card function
 async function fetchData(key, resortName){
     const endpoint = resortName   //const endpoint 
     const url =  `https://der-lg-api.vercel.app/province?${key}=${endpoint}`
     const response = await fetch(url)
     const data = await response.json()
-    console.log(response)
+    console.log(data)
+    if(data.length ===0){
+        errorHandle.style.display = "flex"
+    }
+    else{
+        errorHandle.innerHTML = ``
+    }
+
      data.forEach((value,index)=>{
         const {indexNumber,landscape, type,provinceName,location,averagecost,travelTime,travelDistance,resortName} = value 
         const card = document.createElement("div")  //create card div
@@ -108,11 +114,13 @@ function displayDiscover(){
     content.innerHTML = ``
     discoverCard.style.display ="grid"
     discoverCard.style.marginLeft =""
+    errorHandle.style.display = "none"
 }
 //favorite function
 function displayFavorite(){
     content.innerHTML = ``
     discoverCard.style.display ="none"
+    errorHandle.style.display = "none"
     unique.forEach((value)=>{fetchData("id",value)})
 }
 //show the data of discover

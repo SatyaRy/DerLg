@@ -7,9 +7,11 @@
     font-family: "Poppins", sans-serif;;
 }
 body{
-    height: 100vh;
+    height:100%;
+    width: 100%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
     background-image: linear-gradient(to right, #F5EDED,#E2DAD6);
-
 }
 
 
@@ -206,7 +208,7 @@ body{
 
 /*Error Handling */
 .errorHandling{
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     width: 100%;
