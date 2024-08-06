@@ -7,7 +7,6 @@ let notify = document.querySelector(".notify")
 let discover = document.querySelector("#discover")
 let discoverCard = document.querySelector(".discoverCard")
 let viewButton = document.getElementById("views")
-let errorImage = document.querySelector(".errorImage")
 const arrayIndex = [] // store the index of data but duplicated
 const unique =[] //store new index without duplicated
 //Find button function
@@ -40,14 +39,6 @@ async function fetchData(key, resortName){
     const response = await fetch(url)
     const data = await response.json()
     console.log(response)
-    if(data.length ===0){
-       const errorHandle = document.createElement("img")
-       errorHandle.src ="asset/valuecat.svg"
-       errorImage.appendChild(errorHandle)
-    }
-    else{
-        errorImage.innerHTML = ``
-    }
      data.forEach((value,index)=>{
         const {indexNumber,landscape, type,provinceName,location,averagecost,travelTime,travelDistance,resortName} = value 
         const card = document.createElement("div")  //create card div
@@ -117,13 +108,11 @@ function displayDiscover(){
     content.innerHTML = ``
     discoverCard.style.display ="grid"
     discoverCard.style.marginLeft =""
-    errorImage.innerHTML = ``
 }
 //favorite function
 function displayFavorite(){
     content.innerHTML = ``
     discoverCard.style.display ="none"
-    errorImage.innerHTML = ``
     unique.forEach((value)=>{fetchData("id",value)})
 }
 //show the data of discover
