@@ -82,7 +82,6 @@ async function fetchData(key, resortName){
         let check = true
         card.addEventListener("click", event=>{ //testing
                 if(event.target.className ==="fa-solid fa-heart" && check){
-                    console.log("ss")
                     check = false
                     event.target.style.color ="red"
                     card.setAttribute("id", `${indexNumber}`)
