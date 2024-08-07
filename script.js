@@ -41,7 +41,7 @@ async function fetchData(key, resortName){
         errorHandle.style.display = "flex"
     }
     else{
-        errorHandle.innerHTML = ``
+        errorHandle.innerHTML = "none"
     }
 
      data.forEach((value,index)=>{
@@ -89,6 +89,8 @@ async function fetchData(key, resortName){
                     const cardId = card.getAttribute("id")
                     arrayIndex.push(cardId)
                     arrayIndex.forEach((value)=>{if(!unique.includes(value)){ unique.push(value)}})
+                    notify.style.display = "flex"
+                    setTimeout(()=>{notify.style.display = "none"},3000)
                 }
                 else{
                     console.log("sss")
@@ -124,4 +126,6 @@ function discoverData(key,value){
 function filter(){
     alert("Filter Still Fixing Thank You ")
 }
+
+
 

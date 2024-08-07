@@ -105,6 +105,15 @@ body{
     border-radius: 50%;
     color: white;
 }
+/*notification*/
+#notification{
+    transition: linear 0.5s;
+}
+#notification:hover{
+    transform: translateY(-5px);
+}
+
+
 
 /*create effect below navBar*/
 .discoverBar::before{
