@@ -316,17 +316,19 @@ body{
     margin-right: 2vh;
 }
 .cardDetail :nth-child(1){
-    background-color: white;
+    background-color: #7743DB;
     padding: 10px;
-    border: solid dodgerblue;
+    border: none;
     font-size: 0.8rem;
     font-weight: 500;
+    color: white;
     border-radius: 10px;
 }
 .cardDetail :nth-child(2){
-    background-color: white;
+    background-color: #7743DB;
     padding: 10px;
-    border: solid dodgerblue;
+    border:none;
+    color: white;
     font-size: 0.8rem;
     font-weight: 500;
     border-radius: 10px;
